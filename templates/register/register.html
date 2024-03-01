@@ -1,0 +1,46 @@
+{% load static %}
+{% load placeholders %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DjangogramWEB</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="shortcut icon" href="{%  static 'images/5869361_instagram_network_social media_icon.png' %}">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form onsubmit="submitForm('chk')" method="post" action="{% url 'register' %}">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					{{ form.username|placeholder:'Enter your Username: '}}
+                    {{ form.email|placeholder:'Enter your Email: '}}
+                    {{ form.password1|placeholder:'Please enter your password' }}
+                    {{ form.password2|placeholder:'Please repeat your password' }}
+					<button>Sign up</button>
+                    {% csrf_token %}
+				</form>
+			</div>
+
+			<div class="login">
+				<form method="post" action="{% url 'login' %}">
+					<label for="chk" aria-hidden="true">Login</label>
+                    {{ form.email }}
+                    {{ form.password1 }}
+                    <input type="hidden" name="next" value="{{ next }}">
+					<button>Login</button>
+                    {% csrf_token %}
+				</form>
+			</div>
+	</div>
+    <script>
+        function submitForm(checkboxId, event) {
+            event.preventDefault();
+            document.getElementById(checkboxId).checked = true;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socialgram</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="shortcut icon" href="{%  static 'images/5869361_instagram_network_social media_icon.png' %}">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<input type="checkbox" checked id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form onsubmit="submitForm('chk')" method="post" action="{% url 'register' %}">
+					<label for="chk" aria-hidden="true" disabled="disabled">Sign up</label>
+					{{ form.username }}
+                    {{ form.email }}
+                    {{ form.password1 }}
+                    {{ form.password2 }}
+					<button disabled="disabled">Sign up</button>
+                    {% csrf_token %}
+				</form>
+			</div>
+
+			<div class="login">
+				<form method="post" action="{% url 'login' %}">
+                        {{ form }}
+                    {{ form.non_field_errors }}
+
+					<label for="chk" aria-hidden="true"></label>
+                    <input type="hidden" name="next" value="{{ next }}">
+					<button type="submit">Login</button>
+                    {% csrf_token %}
+				</form>
+			</div>
+	</div>
+    <script>
+        function submitForm(checkboxId, event) {
+            event.preventDefault();
+            document.getElementById(checkboxId).checked = true;
+        }
+    </script>
+</body>
+</html>
+
+

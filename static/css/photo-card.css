@@ -1,0 +1,204 @@
+.container {
+    padding: 15px 0;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+}
+
+.errorlist li {
+    width: 200px;
+    color: red;
+    list-style-type: none;
+}
+
+.container .logo {
+    display: flex;
+    cursor: pointer;
+}
+
+
+.home {
+    font-size: 25px;
+    margin: 10px 0 0 3px;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-group .nav-item a {
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    color: white;
+}
+.action .profile {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+    width: 100%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+.imgBx .cover{
+    display:block;
+}
+main .container {
+    position: relative;
+    margin-top: 60px;
+    width: 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col-9 {
+    width: 65%;
+    margin: 5% auto;
+    margin-bottom: -20px;
+}
+
+.card {
+    margin: auto;
+    margin-top: 115px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 50%;
+    /* min-height: 400px; */
+    display: block;
+    border: 1px solid rgba(7, 7, 7, 0.24);
+}
+
+.card .top {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .bottom {
+    padding: 10px 60px;
+}
+
+.card .top .userDetails {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profilepic {
+    display: inline-block;
+}
+
+.profilepic .profile_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to right, red, orange);
+    padding: 2px;
+    margin-right: 8px;
+}
+
+.profilepic .profile_img .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-top: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.profilepic .profile_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 0 !important;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .top .userDetails h3 {
+    font-size: 16px;
+    color: #4d4d4f;
+    font-weight: 500;
+    line-height: 1em;
+    white-space: nowrap;
+}
+
+.card .top .userDetails h3 span {
+    font-size: 0.75em;
+}
+
+
+.dot {
+    transform: scale(0.6);
+    cursor: pointer;
+}
+
+.imgBx {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    margin: 10px 65px 15px;
+}
+
+.actionBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actionBtns svg {
+    cursor: pointer;
+}
+
+.actionBtns .left svg {
+    margin-right: 8px;
+}
+
+.likes {
+    font-weight: 500;
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: default;
+    color: #4d4d4f;
+}

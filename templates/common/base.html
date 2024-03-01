@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{%  static 'images/5869361_instagram_network_social media_icon.png' %}">
+    <title>Socialgram</title>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <!-- Link to Home Page -->
+                <a href="{% url 'index' %}">
+                    <img width="50px" src="{% static 'images/5869361_instagram_network_social media_icon.png' %}" alt="img1">
+                </a>
+                <!-- Link to Home Page -->
+                <a class="home" href="{% url 'index' %}">
+                    <i>Socialgram</i>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <ul class="nav-group">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="{% url 'index' %}">
+                                <i>Home</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Link to Add Photo -->
+                            <a href="{% url 'add photo' %}">
+                                <i>Add Photo</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Link to Profile Page -->
+                            <a href="{% url 'details user' pk=request.user.pk %}">
+                                <i>Profile</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'logout' %}">
+                                <i>Sign out</i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'index' %}">
+                                <i>Home</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'register' %}">
+                                <i>Sign up</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}">
+                                <i>Sign in</i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block page_content %}
+    {% endblock %}
+</main>
+</body>
+</html>
