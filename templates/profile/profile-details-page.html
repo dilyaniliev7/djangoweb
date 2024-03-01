@@ -1,0 +1,91 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Socialgram</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/5869361_instagram_network_social media_icon.png' %}">
+</head>
+<body>
+<header>
+
+    <div class="container">
+
+        <div class="profile">
+
+            <div class="profile-image">
+
+                <img src="{% static 'images/изтеглен файл.png' %}" alt="">
+
+            </div>
+
+            <div class="profile-user-settings">
+{#                    TODO: make it dynamic#}
+                <h1 class="profile-user-name">{{ user.username }}</h1>
+
+                <button class="btn profile-edit-btn">Edit Profile</button>
+
+                <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog"
+                                                                                          aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            <div class="profile-stats">
+
+                <ul>
+                    {% if is_owner %}
+                        <li><span class="profile-stat-count">{{ photos_count }}</span> posts</li>
+                        <li><span class="profile-stat-count">0</span> followers</li>
+                        <li><span class="profile-stat-count">0</span> following</li>
+                    {% else %}
+                        <li><span class="profile-stat-count">{{ clicked_user_photos_count }}</span> posts</li>
+                        <li><span class="profile-stat-count">0</span> followers</li>
+                        <li><span class="profile-stat-count">0</span> following</li>
+                    {% endif %}
+                </ul>
+
+            </div>
+
+            <div class="profile-bio">
+{#                TODO: make it dynamic#}
+                <p><span class="profile-real-name">{{ user.username }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit 📷✈️🏕️</p>
+
+            </div>
+
+        </div>
+        <!-- End of profile section -->
+
+    </div>
+    <!-- End of container -->
+
+</header>
+
+<main>
+
+    <div class="container">
+
+        <div class="gallery">
+            {% for item in clicked_user_photos %}
+                <div class="gallery-item" tabindex="0">
+                    <img src="/media/{{ item.photo }}" class="gallery-image" alt="">
+                    <div class="gallery-item-info">
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- End of container -->
+
+</main>
+</body>
+</html>

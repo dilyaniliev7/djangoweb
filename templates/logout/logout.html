@@ -1,0 +1,6 @@
+<h1>Are you sure you want to Logout</h1>
+<form method="post" action="{% url 'logout' %}">
+    {{ form }}
+    <button>Logout</button>
+    {% csrf_token %}
+</form>
