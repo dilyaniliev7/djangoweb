@@ -91,7 +91,7 @@
 {#                    TODO: make it dynamic#}
                 <h1 class="profile-user-name">{{ clicked_user_info.username }}</h1>
 
-                <button class="btn profile-edit-btn">Edit Profile</button>
+                <a class="btn profile-edit-btn" href="{% url 'edit profile' pk=request.user.pk %}">Edit Profile</a>
 
                 <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog"
                                                                                           aria-hidden="true"></i>
