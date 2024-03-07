@@ -1,0 +1,30 @@
+@import 'nav.css';
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    width: 100%;
+    border: 1px solid rgb(218, 217, 217);
+}
+main {
+    padding-top: 100px;
+    width: 100%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+main .container {
+    position: relative;
+    margin-top: 60px;
+    width: 75%;
+    display: inline-block;
+    align-items: flex-start;
+    justify-content: space-between;
+}
