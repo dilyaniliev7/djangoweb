@@ -1,5 +1,5 @@
 from django.urls import path, include
-from djangoweb.accounts.views import SignInView, SignUpView, SignOutView, ProfileDetailView
+from djangoweb.accounts.views import SignInView, SignUpView, SignOutView, ProfileDetailView, UserEditView
 
 urlpatterns = (
     path('login/', SignInView.as_view(), name='login'),
@@ -7,5 +7,6 @@ urlpatterns = (
     path('logout/', SignOutView.as_view(), name='logout'),
     path('profile/<int:pk>/', include([
         path('', ProfileDetailView.as_view(), name='details user'),
+        path('edit/', UserEditView.as_view(), name='edit profile')
     ])),
 )

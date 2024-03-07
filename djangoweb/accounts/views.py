@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 from django.core import exceptions
 
-from djangoweb.accounts.forms import UserRegistrationForm
+from djangoweb.accounts.forms import UserRegistrationForm, UserEditForm
 from djangoweb.photos.models import Photo
 
 UserModel = get_user_model()
@@ -76,3 +76,12 @@ class ProfileDetailView(LoginRequiredMixin, views.DetailView):
     def get_object(self, queryset=None):
         pk = self.kwargs.get('pk')
         return get_object_or_404(UserModel, pk=pk)
+
+
+class UserEditView(LoginRequiredMixin, views.UpdateView):
+    model = UserModel
+    form_class = UserEditForm
+    template_name = 'profile/profile-edit-page.html'
+
+    def get_success_url(self):
+        return reverse_lazy('details user', kwargs={'pk': self.object.pk})

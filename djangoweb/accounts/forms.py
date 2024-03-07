@@ -25,7 +25,13 @@ class UserRegistrationForm(UserCreationForm):
 class UserEditForm(UserChangeForm):
     class Meta:
         model = UserModel
-        fields = ('username',)
+        fields = ('username', 'first_name', 'last_name', 'email')
+        exclude = ('password',)
+        labels = {'username': 'Username: ',
+                  'first_name': 'First Name: ',
+                  'last_name': 'Last Name: ',
+                  'email': 'Email: ',
+                  }
         field_classes = {
             'username': UsernameField,
         }

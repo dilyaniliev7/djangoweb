@@ -303,9 +303,9 @@ body > main > div > h2 {
 	text-shadow: 1px 1px rgb(65, 63, 63);
 }
 
-.edit-delete label {
-	display: none;
-}
+/*.edit-delete label {*/
+/*	display: none;*/
+/*}*/
 
 .edit-delete input, select {
 	background-color: rgb(240, 230, 230);
