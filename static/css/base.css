@@ -137,9 +137,7 @@ main .container {
     display: flex;
     align-items: center;
 }
-.top .userDetails a {
-    text-decoration: none;
-}
+
 
 @media screen and (max-width: 600px) {
     .container {
