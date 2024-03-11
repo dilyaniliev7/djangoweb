@@ -11,7 +11,7 @@
                 <div class="profilepic">
                     <div class="profile_img">
                         <div class="image">
-                            <img src="{% static 'images' %}" alt="img8">
+                            <img src="{% static 'images/изтеглен файл.png' %}" alt="img8">
                         </div>
                     </div>
                 </div>
@@ -19,11 +19,11 @@
             <h3>
                 <!-- Link to User Profile Page -->
                 <a href="{% url 'details user' pk=photo.user_id %}">
-                    {% if photo.user.get_full_name %}
-                        {{ photo.user.get_full_name }}
-                    {% else %}
+{#                    {% if photo.user.get_full_name %}#}
+{#                        {{ photo.user.get_full_name }}#}
+{#                    {% else %}#}
                         {{ photo.user.username }}
-                    {% endif %}
+{#                    {% endif %}#}
                 </a>
                 <br>
                 {% if photo.location %}

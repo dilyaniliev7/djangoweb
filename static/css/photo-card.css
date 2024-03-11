@@ -109,6 +109,9 @@ main .container {
     display: flex;
     align-items: center;
 }
+.card .top .userDetails a {
+    text-decoration: none;
+}
 
 .profilepic {
     display: inline-block;
