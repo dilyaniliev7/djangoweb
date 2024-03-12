@@ -67,6 +67,7 @@
                                                  role="img"
                                                  viewBox="0 0 48 48"
                                                  width="24">
+                                        {% endif %}
                                         <!-- Coordinate path -->
                                         <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4
                                                     11.5 0 6.8-5.9 11-11.5 16S25 41.3 24
@@ -82,7 +83,6 @@
                                                     48 25 48 17.6c0-8-6-14.5-13.4-14.5z">
                                         </path>
                                     </svg>
-                                        {% endif %}
 								</a>
 								</span>
 {#                <a href="{% url 'share photo' photo_id=photo.pk %}">#}
@@ -111,43 +111,48 @@
         <h5 class="postTime">{{ photo.publication_date }}</h5>
 
         {% for comment in photo.photocomment_set.all %}
-            <div class="comments">
-                <div class="top">
-                    <div class="userDetails">
-                        <div class="comment-data">
-                            <div class="profilepic">
-                                <div class="profile_img">
-                                    <div class="image"> <!-- User Profile Image -->
-                                        <img src="{% static 'images/axolotl.jpeg' %}" alt="img8">
+                    <div class="comments">
+                        <div class="top">
+                            <div class="userDetails">
+                                <div class="comment-data">
+                                    <div class="profilepic">
+                                        <div class="profile_img">
+                                            <div class="image">
+                                                <!-- User Profile Image -->
+                                                <img src="{% static 'images/изтеглен файл.png' %}" alt="img8">
+                                            </div>
+                                        </div>
                                     </div>
+                                    <p>
+                                        <!-- Link to User Profile Details Page-->
+                                        <!-- User First and/or Last Name or username-->
+                                        <a href="{% url 'details user' pk=photo.user_id %}">{{ comment.user.get_full_name }}</a>
+                                        <!-- User Comment -->
+                                        {{ comment.text }}
+                                    </p>
                                 </div>
+                                <span>{{ comment.date_of_publication }}</span>
                             </div>
-                            <p>
-                                <a href="">Steven Ivanov</a>
-                                <!-- User Comment -->
-                                {{ comment.text }}
-                            </p>
                         </div>
-                        <span>{{ comment.publication_date }}</span>
                     </div>
-                </div>
-            </div>
-            <!-- End Comments Section -->
-        {% endfor %}
-        <div class="addComments">
-            <div class="reaction">
-                <h3>
-                    <i class="far fa-smile"></i>
-                </h3>
-            </div>
-            <!-- Start Add Comments Form -->
-            <form method="post" action="">
-                {{ comment_form }}
-                <button type="submit">Post</button>
-                {% csrf_token %}
-            </form>
-            <!-- End Add Comments Form -->
+                    <!-- End Comments Section -->
+                {% endfor %}
+                <div class="addComments">
+                    <div class="reaction">
+                        <h3>
+                            <i class="far fa-smile"></i>
+                        </h3>
+                    </div>
 
-        </div>
+                    <!-- Start Add Comments Form -->
+                    <form method="post" action="{% url 'comment photo' photo_id=photo.pk %}">
+                        {{ comment_form }}
+                        <button type="submit">Post</button>
+                        {% csrf_token %}
+                    </form>
+                    <!-- End Add Comments Form -->
+
+                </div>
     </div>
+
 </div>

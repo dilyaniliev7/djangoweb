@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
 
+from djangoweb.djangogram.forms import PhotoCommentForm
 from djangoweb.djangogram.models import PhotoLike
 from djangoweb.djangogram.utils import get_photo_url
 from djangoweb.photos.models import Photo
@@ -29,6 +30,7 @@ def index(request):
     user = UserModel
     context = {
         'user': UserModel,
+        'comment_form': PhotoCommentForm(),
         'photos': photos,
     }
     return render(request, 'index.html', context)
@@ -47,3 +49,15 @@ def like_functionality(request, photo_id):
     return redirect(get_photo_url(request, photo_id))
 
 
+@login_required
+def comment_photo(request, photo_id):
+    photo = Photo.objects.filter(pk=photo_id).get()
+    form = PhotoCommentForm(request.POST)
+
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.photo = photo
+        comment.user = request.user
+        comment.save()
+
+    return redirect(request.META['HTTP_REFERER'] + f'#{photo_id}')
