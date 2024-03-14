@@ -125,8 +125,11 @@
                                     </div>
                                     <p>
                                         <!-- Link to User Profile Details Page-->
-                                        <!-- User First and/or Last Name or username-->
-                                        <a href="{% url 'details user' pk=photo.user_id %}">{{ comment.user.get_full_name }}</a>
+                                        {% if comment.user.get_full_name %}
+                                            <a href="{% url 'details user' pk=photo.user_id %}">{{ comment.user.get_full_name }}</a>
+                                        {% else %}
+                                            <a href="{% url 'details user' pk=photo.user_id %}">{{ comment.user.username }}</a>
+                                        {% endif %}
                                         <!-- User Comment -->
                                         {{ comment.text }}
                                     </p>

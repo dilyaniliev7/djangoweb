@@ -293,13 +293,13 @@ body > main > div > h2 {
 	padding: 40px;
 	margin-bottom: 15px;
 	border-radius: 3px;
-	border: 1px solid;
 	box-shadow: 1px 2px 3px #888888;
 }
 
 .edit-delete h2 {
 	text-align: center;
 	margin-top: -10px;
+    margin-bottom: 15px;
 	text-shadow: 1px 1px rgb(65, 63, 63);
 }
 
@@ -313,9 +313,13 @@ body > main > div > h2 {
 	border-radius: 3px;
 	height: 30px;
 	padding-left: 2px;
-	margin-top: 10px;
+	/*margin-top: 10px;*/
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    position: absolute;
+    right: 140px;
 }
-
 .edit-delete button {
 	color: white;
 	font-weight: bold;
@@ -376,4 +380,14 @@ body > main > div > h2 {
 
 .edit-delete button:hover {
     box-shadow: none;
+}
+label {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+input[type='username'], input[type='first_name'], input[type='last_name'], input[type='email'] {
+    width: 50%;
+    box-sizing: border-box;
+    margin-top: 5px;
 }

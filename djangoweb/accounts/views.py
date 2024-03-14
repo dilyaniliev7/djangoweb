@@ -1,11 +1,9 @@
 from django.contrib.auth import views as auth_views, get_user_model, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ValidationError
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.core import exceptions
-
 from djangoweb.accounts.forms import UserRegistrationForm, UserEditForm
 from djangoweb.photos.models import Photo
 
@@ -73,7 +71,6 @@ class ProfileDetailView(LoginRequiredMixin, views.DetailView):
         context['clicked_user_photos_count'] = clicked_user_photos_count
         return context
 
-
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={'pk': self.object.pk})
 
@@ -86,6 +83,13 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
     model = UserModel
     form_class = UserEditForm
     template_name = 'profile/profile-edit-page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['is_owner'] = self.request.user == self.object
+
+        return context
 
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={'pk': self.object.pk})

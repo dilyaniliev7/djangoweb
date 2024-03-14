@@ -35,3 +35,4 @@ class UserEditForm(UserChangeForm):
         field_classes = {
             'username': UsernameField,
         }
+

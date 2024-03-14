@@ -28,3 +28,13 @@ main .container {
     align-items: flex-start;
     justify-content: space-between;
 }
+label {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+input[type='username'], input[type='first_name'], input[type='last_name'], input[type='email'] {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
