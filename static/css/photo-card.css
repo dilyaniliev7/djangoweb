@@ -176,6 +176,13 @@ main .container {
     transform: scale(0.6);
     cursor: pointer;
 }
+.delete-profile img {
+    margin-top: -140px;
+    margin-left: -60px;
+    position: absolute;
+    z-index: -1;
+}
+
 
 .imgBx {
     position: relative;
@@ -346,4 +353,36 @@ a {
 
 .add-comment-details .addComments {
     margin-top: 0 !important;
+}
+.personal .edit {
+    display: flex;
+    gap: 20px;
+    font-weight: lighter;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.personal .edit p {
+    white-space: nowrap;
+}
+
+.personal .edit-img {
+    width: 25px;
+    margin-top: 8px;
+}
+
+.personal .bin-img {
+    width: 25px;
+    margin-left: -10px;
+    margin-top: 8px;
+}
+.edit-delete-btns {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.edit-delete-btns img {
+    width: 20px;
+    margin-left: 5px;
 }
