@@ -1,10 +1,12 @@
 from django.contrib.auth import views as auth_views, get_user_model, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, PermissionDenied
+from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views
 from djangoweb.accounts.forms import UserRegistrationForm, UserEditForm
+from djangoweb.djangogram.decorators import is_owner
 from djangoweb.photos.models import Photo
 
 UserModel = get_user_model()
@@ -91,5 +93,25 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
 
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        user = self.get_object()
+        if request.user != user:
+            raise Http404("You do not have permission to access this page.")
+        return super().dispatch(request, *args, **kwargs)
+
+    # def get_object(self, queryset=None):
+    #     obj = super().get_object(queryset)
+    #     if obj.email != self.request.user:
+    #         raise PermissionDenied('You dont have permission to update this profile.')
+    #     return obj
+    def get_object(self, queryset=None):
+        user_id = self.kwargs.get('pk')
+        user = get_object_or_404(UserModel, pk=user_id)
+        return user
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={'pk': self.object.pk})
+

@@ -88,9 +88,11 @@
 
             <div class="profile-user-settings">
                 <h1 class="profile-user-name">{{ clicked_user_info.username }}</h1>
-
-                <a class="btn profile-edit-btn" href="{% url 'edit profile' pk=request.user.pk %}">Edit Profile</a>
-
+                {% if is_owner %}
+                    <a class="btn profile-edit-btn" href="{% url 'edit profile' pk=request.user.pk %}">Edit Profile</a>
+                {% else %}
+                    <a class="btn profile-edit-btn">Edit Profile</a>
+                {% endif %}
                 <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog"
                                                                                           aria-hidden="true"></i>
                 </button>
