@@ -65,7 +65,9 @@ class ProfileDetailView(LoginRequiredMixin, views.DetailView):
         clicked_user = self.get_object()
         clicked_user_photos = Photo.objects.filter(user=clicked_user)
         photos = self.object.photo_set.prefetch_related('photolike_set')
-        context['likes_count'] = sum(x.photolike_set.count() for x in clicked_user_photos)
+        photos = self.object.photo_set.prefetch_related('commentlike_set')
+        context['likes_count'] = [x.photolike_set.count() for x in clicked_user_photos]
+        context['comments_count'] = sum(x.photocomment_set.count() for x in clicked_user_photos)
         # TODO: fix likes to every photo in profile-details-page
         clicked_user_photos_count = Photo.objects.filter(user=clicked_user).count()
         context['clicked_user_info'] = clicked_user

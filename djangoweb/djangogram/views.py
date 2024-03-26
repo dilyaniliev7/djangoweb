@@ -30,6 +30,7 @@ def index(request):
     user = UserModel
     context = {
         'user': UserModel,
+        'requested': request.user,
         'comment_form': PhotoCommentForm(),
         'photos': photos,
     }
