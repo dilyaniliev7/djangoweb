@@ -116,9 +116,13 @@
             </div>
 
             <div class="profile-bio">
-                <p><span class="profile-real-name">{{ clicked_user_info.username }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
+                {% if clicked_user_info.get_full_name %}
+                    <p><span class="profile-real-name">{{ clicked_user_info.get_full_name }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
                     elit 📷✈️🏕️</p>
-
+                {% else %}
+                    <p><span class="profile-real-name">{{ clicked_user_info.username }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit 📷✈️🏕️</p>
+                {% endif %}
             </div>
 
         </div>

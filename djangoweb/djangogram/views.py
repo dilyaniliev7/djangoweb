@@ -18,18 +18,22 @@ def apply_likes_count(photo):
     return photo
 
 
-def apply_user_liked_photo(photo):
-    photo.is_liked_by_user = photo.likes_count > 0
+def apply_user_liked_photo(photo, user):
+    if user.is_authenticated:
+        photo.is_liked_by_user = photo.photolike_set.filter(user=user).exists()
+    else:
+        photo.is_liked_by_user = False
     return photo
 
 
 def index(request):
     photos = Photo.objects.all()
+    user = request.user
     photos = [apply_likes_count(photo) for photo in photos]
-    photos = [apply_user_liked_photo(photo) for photo in photos]
+    photos = [apply_user_liked_photo(photo, user) for photo in photos]
     user = UserModel
     context = {
-        'user': UserModel,
+        'user': user,
         'requested': request.user,
         'comment_form': PhotoCommentForm(),
         'photos': photos,
