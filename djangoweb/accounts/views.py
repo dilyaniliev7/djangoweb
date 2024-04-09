@@ -5,7 +5,8 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views
-from djangoweb.accounts.forms import UserRegistrationForm, UserEditForm
+from djangoweb.accounts.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
+from djangoweb.accounts.models import Profile
 from djangoweb.djangogram.decorators import is_owner
 from djangoweb.photos.models import Photo
 
@@ -89,9 +90,11 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        context['profile_form'] = ProfileEditForm(instance=self.object.profile)
         context['is_owner'] = self.request.user == self.object
-
+        user = self.get_object()
+        if user.profile is None:
+            raise Http404("Profile does not exist for this user.")
         return context
 
     def dispatch(self, request, *args, **kwargs):
@@ -108,11 +111,41 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
     def get_object(self, queryset=None):
         user_id = self.kwargs.get('pk')
         user = get_object_or_404(UserModel, pk=user_id)
+        profile, created = Profile.objects.get_or_create(user=user)
         return user
 
     def form_valid(self, form):
+        profile_form = ProfileEditForm(self.request.POST, self.request.FILES, instance=self.object.profile)
+        user = self.get_object()
+        if user.profile is None:
+            raise Http404("Profile does not exist for this user.")
+        if profile_form.is_valid():
+            profile_form.save()
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={'pk': self.object.pk})
 
+
+class ProfileDeleteView(LoginRequiredMixin, views.DeleteView):
+    template_name = 'profile/profile-delete-page.html'
+    model = UserModel
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['is_owner'] = self.request.user == self.object
+
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        user = self.get_object()
+        if request.user != user:
+            raise Http404("You do not have permission to access this page.")
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        user_id = self.kwargs.get('pk')
+        user = get_object_or_404(UserModel, pk=user_id)
+        return user

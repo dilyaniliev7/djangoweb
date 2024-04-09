@@ -17,7 +17,8 @@
     <div class="edit-delete">
         <h2>Edit Profile</h2>
         <!-- Start Edit Profile From -->
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
+            {{ profile_form.as_p }}
             {% csrf_token %}
 
             {% for field in form %}

@@ -78,3 +78,8 @@ class Profile(models.Model):
         primary_key=True,
         on_delete=models.CASCADE,
     )
+    profile_picture = models.ImageField(
+        upload_to='mediafiles/profile_pictures/',
+        null=True,
+        blank=True,
+    )

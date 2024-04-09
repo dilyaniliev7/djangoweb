@@ -82,7 +82,7 @@
 
             <div class="profile-image">
 
-                <img src="{% static 'images/изтеглен файл.png' %}" alt="">
+                <img src="{{ clicked_user_info.profile.profile_picture.url }}" alt="">
 
             </div>
 
@@ -90,6 +90,9 @@
                 <h1 class="profile-user-name">{{ clicked_user_info.username }}</h1>
                 {% if is_owner %}
                     <a class="btn profile-edit-btn" href="{% url 'edit profile' pk=request.user.pk %}">Edit Profile</a>
+                    <a href="{% url 'delete profile' pk=request.user.pk %}">
+                        <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
+                    </a>
                 {% else %}
                     <a class="btn profile-edit-btn">Edit Profile</a>
                 {% endif %}
@@ -143,6 +146,8 @@
                         </ul>
                     </div>
                 </div>
+            {% empty %}
+                <img class="no-posts" src="{% static 'images/no_posts.png'%}" alt="no posts image">
             {% endfor %}
         </div>
     </div>

@@ -397,3 +397,51 @@ input[type='username'], input[type='first_name'], input[type='last_name'], input
     box-sizing: border-box;
     margin-top: 5px;
 }
+
+.delete-profile {
+    margin-top: 5vh;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.delete-profile h1 {
+    z-index: 3;
+}
+
+.delete-profile img {
+    margin-top: -140px;
+    margin-left: -60px;
+    position: absolute;
+    z-index: -1;
+}
+.sure-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.sure-buttons button, .sure-buttons a {
+    padding: 5px 10px 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 3px #888888;
+    z-index: 2;
+}
+
+.sure-buttons button {
+    background-color: red;
+}
+
+.sure-buttons button:hover, .sure-buttons a:hover {
+    box-shadow: none;
+}
+
+.sure-buttons a {
+    background-color: green;
+}

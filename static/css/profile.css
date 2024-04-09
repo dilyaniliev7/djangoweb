@@ -95,12 +95,15 @@ img {
 
 .profile-user-settings {
     margin-top: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 .profile-user-name {
     display: inline-block;
     font-size: 3.2rem;
     font-weight: 300;
+    margin-left: 3rem;
 }
 
 .profile-edit-btn {
@@ -110,9 +113,7 @@ img {
     border: 0.1rem solid #dbdbdb;
     border-radius: 0.3rem;
     padding: 0 2.4rem;
-    margin-left: 2rem;
-    position: relative;
-    top: -6px;
+    margin-left: 2.5rem;
 }
 
 .profile-settings-btn {
@@ -304,7 +305,11 @@ img {
         display: block;
     }
 }
-
+.bin-img {
+    width: 3.4rem;
+    height: 3.1rem;
+    margin-left: 7px;
+}
 /* Spinner Animation */
 
 @keyframes loader {

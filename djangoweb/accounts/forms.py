@@ -2,6 +2,8 @@ from django import forms as auth_forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UsernameField, UserChangeForm
 
+from djangoweb.accounts.models import Profile
+
 UserModel = get_user_model()
 
 
@@ -36,3 +38,8 @@ class UserEditForm(UserChangeForm):
             'username': UsernameField,
         }
 
+
+class ProfileEditForm(auth_forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('profile_picture',)
