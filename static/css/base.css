@@ -95,7 +95,7 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 main .container {
@@ -313,6 +313,7 @@ body > main > div > h2 {
 	border-radius: 3px;
 	height: 30px;
 	padding-left: 2px;
+    padding-top: 2.8px;
 	/*margin-top: 10px;*/
     width: 50%;
     margin: 0 auto;
@@ -390,7 +391,8 @@ body > main > div > h2 {
 label {
     display: inline-block;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    margin-top: 1px;
 }
 input[type='username'], input[type='first_name'], input[type='last_name'], input[type='email'] {
     width: 50%;
@@ -444,4 +446,7 @@ input[type='username'], input[type='first_name'], input[type='last_name'], input
 
 .sure-buttons a {
     background-color: green;
+}
+.edit-delete p {
+    padding-bottom: 6px;
 }

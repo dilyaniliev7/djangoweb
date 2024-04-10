@@ -1,4 +1,5 @@
 from django import forms as auth_forms
+from django.forms import ImageField, FileInput
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UsernameField, UserChangeForm
 
@@ -40,6 +41,8 @@ class UserEditForm(UserChangeForm):
 
 
 class ProfileEditForm(auth_forms.ModelForm):
+    profile_picture = ImageField(widget=FileInput)
+
     class Meta:
         model = Profile
         fields = ('profile_picture',)

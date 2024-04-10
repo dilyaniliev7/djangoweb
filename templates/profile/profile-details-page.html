@@ -81,9 +81,11 @@
         <div class="profile">
 
             <div class="profile-image">
-
-                <img src="{{ clicked_user_info.profile.profile_picture.url }}" alt="">
-
+                {% if clicked_user_info.profile.profile_picture %}
+                    <img src="{{ clicked_user_info.profile.profile_picture.url }}" alt="">
+                {% else %}
+                    <img src="{% static 'images/изтеглен файл.png' %}" alt="">
+                {% endif %}
             </div>
 
             <div class="profile-user-settings">
