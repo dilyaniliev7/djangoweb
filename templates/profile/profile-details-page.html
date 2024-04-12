@@ -82,9 +82,9 @@
 
             <div class="profile-image">
                 {% if clicked_user_info.profile.profile_picture %}
-                    <img src="{{ clicked_user_info.profile.profile_picture.url }}" alt="">
+                    <img src="{{ clicked_user_info.profile.profile_picture.url }}" alt="Profile picture">
                 {% else %}
-                    <img src="{% static 'images/изтеглен файл.png' %}" alt="">
+                    <img src="{% static 'images/no-profile-picture-icon.webp' %}" alt="No profile picture">
                 {% endif %}
             </div>
 

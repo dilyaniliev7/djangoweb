@@ -11,7 +11,12 @@
                 <div class="profilepic">
                     <div class="profile_img">
                         <div class="image">
-                            <img src="{% static 'images/изтеглен файл.png' %}" alt="img8">
+                            {% if photo.user.profile.profile_picture %}
+                                <img src="{{ photo.user.profile.profile_picture.url }}" alt="User Profile Picture">
+                            {% else %}
+                                <!-- Handle the case where no profile picture is available -->
+                                <img src="{% static 'images/no-profile-picture-icon.webp' %}" alt="img8">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -131,8 +136,12 @@
                             <div class="profilepic">
                                 <div class="profile_img">
                                     <div class="image">
-                                        <!-- User Profile Image -->
-                                        <img src="{% static 'images/изтеглен файл.png' %}" alt="img8">
+                                        {% if comment.user.profile.profile_picture %}
+                                            <img src="{{ comment.user.profile.profile_picture.url }}"
+                                                 alt="User Profile Picture">
+                                        {% else %}
+                                            <img src="{% static 'images/no-profile-picture-icon.webp' %}" alt="img8">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
