@@ -58,3 +58,8 @@ body > main > div {
 	display: block;
 	width: 50%;
 }
+
+/*	Media Query	*/
+@media screen and (max-width: 1060px) {
+
+}

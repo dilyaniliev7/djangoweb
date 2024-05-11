@@ -138,41 +138,6 @@ main .container {
     align-items: center;
 }
 
-
-@media screen and (max-width: 600px) {
-    .container {
-        width: 100% !important;
-    }
-
-    .navbar .container {
-        padding: 15px 10px !important;
-    }
-
-    .col-9 {
-        margin-top: 4px;
-        min-width: 100%;
-    }
-
-    .statuses {
-        margin-bottom: 0;
-    }
-
-    .col-9 .card {
-        margin-bottom: 0;
-        width: 100%;
-        border: none;
-    }
-
-    .imgBx {
-        position: relative;
-        width: 100%;
-        min-height: 400px;
-        margin: 10px 0 15px;
-    }
-
-}
-
-
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -449,4 +414,46 @@ input[type='username'], input[type='first_name'], input[type='last_name'], input
 }
 .edit-delete p {
     padding-bottom: 6px;
+}
+@media screen and (min-width: 340px) and (max-width: 1052px) {
+    .edit-delete input {
+        right: 12px;
+    }
+}
+/*@media screen and (max-width: 1052px) {*/
+/*    .edit-delete input {*/
+/*        right: 130px;*/
+/*    }*/
+/*}*/
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100% !important;
+    }
+
+    .navbar .container {
+        padding: 15px 10px !important;
+    }
+
+    .col-9 {
+        margin-top: 4px;
+        min-width: 100%;
+    }
+
+    .statuses {
+        margin-bottom: 0;
+    }
+
+    .col-9 .card {
+        margin-bottom: 0;
+        width: 100%;
+        border: none;
+    }
+
+    .imgBx {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+        margin: 10px 0 15px;
+    }
+
 }
