@@ -415,9 +415,39 @@ input[type='username'], input[type='first_name'], input[type='last_name'], input
 .edit-delete p {
     padding-bottom: 6px;
 }
-@media screen and (min-width: 340px) and (max-width: 1052px) {
+@media screen and (min-width: 1140px) {
     .edit-delete input {
-        right: 12px;
+        right: 60px;
+    }
+}
+@media screen and (min-width: 1076px) and (max-width: 1140px) {
+    .edit-delete input {
+        right: 26px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 1076px) {
+    .edit-delete input {
+        right: 60px;
+    }
+}
+@media screen and (max-width: 812px) {
+    .edit-delete input {
+        right: 20px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 745px) {
+    .edit-delete input {
+        right: 35px;
+    }
+}
+@media screen and (max-width: 708px) {
+    label {
+        margin-left: -30px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 640px) {
+    .edit-delete input {
+        right: 36px;
     }
 }
 /*@media screen and (max-width: 1052px) {*/
@@ -455,5 +485,58 @@ input[type='username'], input[type='first_name'], input[type='last_name'], input
         min-height: 400px;
         margin: 10px 0 15px;
     }
+    .edit-delete input {
+        right: 12px;
+    }
 
+}
+@media screen and (min-width: 340px) and (max-width: 546px) {
+    .edit-delete input {
+        right: 12px;
+    }
+    .edit-delete p {
+        padding-left: 4px;
+        margin-left: -10px;
+        justify-content: flex-start;
+    }
+    .home {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 340px) and (max-width: 500px) {
+    .edit-delete input {
+        right: 12px;
+    }
+    .nav-group {
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 474px) {
+    label {
+        font-size: 14px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 426px) {
+    .edit-delete input {
+        right: 4px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 401px) {
+    label {
+        font-size: 12px;
+    }
+    .edit-photo label {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+    .edit-delete input {
+        right: 5px;
+        margin: -3px 3px -8px;
+    }
+}
+@media screen and (min-width: 340px) and (max-width: 360px) {
+    .edit-delete input {
+        right: 1px;
+    }
 }

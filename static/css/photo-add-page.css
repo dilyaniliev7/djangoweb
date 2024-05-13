@@ -60,6 +60,10 @@ body > main > div {
 }
 
 /*	Media Query	*/
-@media screen and (max-width: 1060px) {
-
+@media screen and (max-width: 548px) {
+    .edit-delete p {
+        padding-left: 2px;
+        margin-left: -40px;
+        justify-content: flex-start;
+    }
 }
