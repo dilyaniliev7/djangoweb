@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from djangoweb.photos.forms import PhotoCreateForm
 from djangoweb.photos.models import Photo
@@ -39,5 +39,12 @@ def edit_photo(request):
     pass
 
 
-def delete_photo(request):
-    pass
+def delete_photo(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+
+    if request.method == 'POST':
+        photo.photolike_set.all().delete()
+        photo.photocomment_set.all().delete()
+        photo.delete()
+        return redirect('index')
+    return render(request, 'photos/photo-delete-page.html', {'photo': photo})

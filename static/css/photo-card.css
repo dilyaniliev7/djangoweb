@@ -86,6 +86,7 @@ main .container {
 }
 
 .card {
+    border-radius: 10px;
     /*margin: auto;*/
     margin-top: 115px;
     margin-bottom: 20px;

@@ -225,8 +225,32 @@ img {
 }
 
 /* Media Query */
+@media screen and (min-width: 340px) and (max-width: 406px) {
+    .container-nav {
+        width: 100%;
+    }
+
+    .profile-image img {
+        width: 13rem;
+        height: 13rem;
+    }
+}
+@media screen and (min-width: 407px) and (max-width: 424px) {
+    .navbar {
+        height: 180px;
+    }
+}
+@media screen and (max-width: 60rem) {
+    .nav-group {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+}
 
 @media screen and (max-width: 40rem) {
+    .container {
+        padding-right: 2rem;
+    }
     .profile {
         display: flex;
         flex-wrap: wrap;
@@ -246,7 +270,8 @@ img {
     }
 
     .profile-image img {
-        width: 7.7rem;
+        width: 13rem;
+        height: 13rem;
     }
 
     .profile-user-settings {
@@ -383,6 +408,10 @@ Remove or comment-out the code block below to see how the browser will fall-back
         .profile-bio,
         .profile-stats {
             margin: 0;
+        }
+        .profile-image img {
+            width: 13rem;
+            height: 13rem;
         }
     }
 }
