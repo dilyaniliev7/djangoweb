@@ -74,23 +74,6 @@
     </nav>
 </header>
 <main>
-{#    <div class="container">#}
-{#        <h1>{{ photo.user_id.username }}</h1>#}
-{#        <div class="photos">#}
-{#            {% for photo in photos %}#}
-{#                <h1>{{ photo.user_id }}</h1>#}
-{#            <div class="photo">#}
-{#                <img src="/media/{{ photo.photo }}" alt="img">#}
-{#                <div class="info">#}
-{#                    <p>{{ photo.description }}</p>#}
-{#                    <span>39 likes</span>#}
-{#                    <button class="like-button">Like</button>#}
-{#                    <a href="">Comments</a>#}
-{#                </div>#}
-{#            </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    </div>#}
     {% for photo in photos %}
         {% include 'photos/photo-card.html' with photo=photo %}
     {% endfor %}

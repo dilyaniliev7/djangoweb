@@ -45,4 +45,4 @@ class ProfileEditForm(auth_forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('profile_picture',)
+        fields = ('profile_picture', 'description')

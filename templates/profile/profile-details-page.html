@@ -122,11 +122,14 @@
 
             <div class="profile-bio">
                 {% if clicked_user_info.get_full_name %}
-                    <p><span class="profile-real-name">{{ clicked_user_info.get_full_name }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
-                    elit 📷✈️🏕️</p>
+                    <p><span class="profile-real-name">{{ clicked_user_info.get_full_name }}</span></p>
                 {% else %}
-                    <p><span class="profile-real-name">{{ clicked_user_info.username }}</span> Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit 📷✈️🏕️</p>
+                    <p><span class="profile-real-name">{{ clicked_user_info.username }}</span></p>
+                {% endif %}
+                {% if clicked_user_info.profile.description %}
+                    <p>{{ clicked_user_info.profile.description }}</p>
+                {% else %}
+                    <p>📷✈️🏕️</p>
                 {% endif %}
             </div>
 

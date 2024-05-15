@@ -2,6 +2,7 @@ from enum import Enum
 
 from django.contrib.auth import models as auth_models
 from django.core import validators
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 from djangoweb.accounts.managers import AppUserManager
@@ -53,6 +54,8 @@ class Profile(models.Model):
     MIN_LEN_LAST_NAME = 5
     MAX_LEN_LAST_NAME = 30
 
+    MIN_DESCRIPTION_LENGTH = 5
+
     first_name = models.CharField(
         max_length=MAX_LEN_FIRST_NAME,
         validators=(
@@ -80,6 +83,12 @@ class Profile(models.Model):
     )
     profile_picture = models.ImageField(
         upload_to='mediafiles/profile_pictures/',
+        null=True,
+        blank=True,
+    )
+    description = models.CharField(
+        max_length=40,
+        validators=(MinLengthValidator(MIN_DESCRIPTION_LENGTH),),
         null=True,
         blank=True,
     )
