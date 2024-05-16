@@ -31,7 +31,7 @@ label{
 	justify-content: center;
 	display: flex;
 	margin: 40px;
-	margin-bottom: 25px;
+	margin-bottom: 5px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -49,28 +49,27 @@ input{
 	border-radius: 5px;
 	position:relative;
 }
-/*ul.errorlist.nonfield{*/
-/*	width: 300px;*/
-/*    color: red;*/
-/*    list-style-type: none;*/
-/*	position: relative;*/
-/*	top: 100%;*/
-/*	margin-top:5px;*/
-/*	left:50%;*/
-/*	transform:translateX(-100%);*/
-/*}*/
-ul {
-	width: 200px;
-	color: red;
-	list-style-type:none;
-	position: relative;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 0.8em;
-	padding: 0;
-	left: 0;
-	transform: translateX(0);
+ul.errorlist.nonfield{
+	width: 250px;
+    color: red;
+    list-style-type: none;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform:translateX(-50%);
 }
+/*ul {*/
+/*	width: 200px;*/
+/*	color: red;*/
+/*	list-style-type:none;*/
+/*	position: relative;*/
+/*	margin: 0 auto;*/
+/*	text-align: center;*/
+/*	font-size: 0.8em;*/
+/*	padding: 0;*/
+/*	left: 0;*/
+/*	transform: translateX(0);*/
+/*}*/
 button{
 	width: 60%;
 	height: 40px;
