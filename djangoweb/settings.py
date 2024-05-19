@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import cloudinary
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'cloudinary',
 
     'djangoweb.djangogram',
     'djangoweb.accounts',
@@ -104,8 +107,14 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
+# MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
+cloudinary.config(
+  cloud_name="dli5xlcmp",
+  api_key="741836319852411",
+  api_secret="5MfSikHjvCcfpEgxBfDsFaLP6DM",
+  secure=True
+)
 
 AUTH_USER_MODEL = 'accounts.AppUser'
 

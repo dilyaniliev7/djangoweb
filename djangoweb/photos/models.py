@@ -1,3 +1,4 @@
+from cloudinary import models as cloudinary_models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator
 from django.db import models
@@ -12,11 +13,10 @@ class Photo(models.Model):
     MIN_DESCRIPTION_LENGTH = 10
     MAX_LOCATION_LENGTH = 30
 
-    photo = models.ImageField(
-        upload_to='mediafiles/',
+    photo = cloudinary_models.CloudinaryField(
         null=False,
         blank=True,
-        validators=(validate_file_less_than_5mb,),
+        # validators=(validate_file_less_than_5mb,),
     )
 
     description = models.CharField(
