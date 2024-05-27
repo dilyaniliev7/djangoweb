@@ -14,6 +14,7 @@
 #         response = self.client.post(
 #             reverse('register'),
 #             data=self.VALID_USER_DATA,
+#             follow=True,
 #         )
-#
-#         self.assertEqual(self.VALID_USER_DATA['username'], response.context['user'].username)
+#         print(response.context)
+#         self.assertEqual(self.VALID_USER_DATA['username'], response.context['email'].username)
