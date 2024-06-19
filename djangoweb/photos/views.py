@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 
 from djangoweb.photos.forms import PhotoCreateForm
@@ -41,6 +42,8 @@ def edit_photo(request):
 
 def delete_photo(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
+    if request.user != photo.user:
+        raise Http404("You do not have permission to delete this photo.")
 
     if request.method == 'POST':
         photo.photolike_set.all().delete()

@@ -5,8 +5,7 @@
 }
 
 body {
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
-        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
     background: white;
     min-height: 100vh;
 }
