@@ -12,3 +12,5 @@ urlpatterns = (
         path('delete/', ProfileDeleteView.as_view(), name='delete profile'),
     ])),
 )
+
+from .signals import *
