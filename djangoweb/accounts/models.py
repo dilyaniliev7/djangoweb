@@ -4,7 +4,7 @@ from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.core.validators import MinLengthValidator
 from django.db import models
-
+from cloudinary import models as cloudinary_models
 from djangoweb.accounts.managers import AppUserManager
 from djangoweb.accounts.validators import validate_only_letters
 
@@ -81,10 +81,9 @@ class Profile(models.Model):
         primary_key=True,
         on_delete=models.CASCADE,
     )
-    profile_picture = models.ImageField(
-        upload_to='mediafiles/profile_pictures/',
+    profile_picture = cloudinary_models.CloudinaryField(
         null=True,
-        blank=True,
+        blank=True
     )
     description = models.CharField(
         max_length=40,
